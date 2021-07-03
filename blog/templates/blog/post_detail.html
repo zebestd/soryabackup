@@ -1,46 +1,10 @@
 {% block content %}
 
 {% load static %}
-<link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
-
-<style>
-    .sagakay{
-        float:right;
-        margin: 30px;
-        background-color: rgb(126, 14, 14);
-        color:white;
-        border-radius: 25px;
-        display: inline-block;
-         font-size: 25px;
-         width: 200px;
-         text-align: center;
-         letter-spacing: -.2px; 
-         text-decoration: none; 
-    
-    }
-    .sagakay:hover{
-        background-color:rgb(177, 23, 23)
-    }
-    </style>
-<img src="{% static 'images/Soryason-logo.png' %}">
 
 
-<div class="sagakay">
-<a href="" style="color:white; text-decoration: none; display: block;"> Soru Sor </a>
-</div>
+{% include "blog/base.html" %}
 
-<div class="w3-sidebar w3-light-grey w3-bar-block" style="width:25%; margin-top:2%; border-radius: 10px; font-size:20px; text-align: center;">
-    <!-- <h3 class="w3-bar-item">Menu</h3> -->
-    <a href="#" class="w3-bar-item w3-button">Teknoloji</a>
-    <a href="#" class="w3-bar-item w3-button">Bilim</a>
-    <a href="#" class="w3-bar-item w3-button">Tasarim</a>
-    <a href="#" class="w3-bar-item w3-button">Saglik</a>
-    <a href="#" class="w3-bar-item w3-button">Egitim</a>
-    <a href="#" class="w3-bar-item w3-button">Spor</a>
-    <a href="#" class="w3-bar-item w3-button">Oyun</a>
-    <a href="#" class="w3-bar-item w3-button">Yemek</a>
-
-  </div>
 
 
 <link rel='stylesheet' href='https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.1.2/css/bootstrap.min.css'>
@@ -197,7 +161,7 @@ a.icon-link {
           
    
          
-<hr>
+
 
 <div style="margin-left:25%;">
           <div class="container mt-5">
@@ -211,27 +175,38 @@ a.icon-link {
                       </div>
                     </div>
                   </div>
-           
-                  <a href="" class="icon-link mr-3"><i class="fa fa-pencil-square-o"></i> <h1 class="title">{{ post.title }}</h1></a>
+                  <div class="post block">
+                    <b> {{ post.isim }} </b>
+                    <br>
+                    <h5><a href="{% url 'post_detail' post.slug %}" class="icon-link mr-3"><i class="fa fa-pencil-square-o"></i>  {{ post.soru }} </a></h5>
+                 
+                    Kategori: {{ post.kategori }}
+                    <br>
+                    {{ post.aciklama }}
+                  
+                  <div class="blog-card__info">
+                   <small> Sorulma tarihi: {{ post.date_added }} </small>
 
-                  <div class="blog-card__info"> <small>Sorulma tarihi: {{ post.date_added }}</small>
-              
-                  <p><strong>{{ post.intro }}</strong></p>
-              
-                  <p>{{ post.body }}</p>
+                   {{ post.intro }}
               </div>
+              </div>
+              <a href="#home_section">Yanitla</a>
                   <hr>
               
-                  <h2 class="subtitle">Yanitlar</h2>
+                  <h3 class="subtitle">Yanitlar</h3>
               
                   {% for comment in post.comments.all %}
                       <article class="media">
                           <div class="media-content">
                               <div class="content">
                                   <p>
-                                      <strong>{{ comment.name }}</strong> <small>{{ comment.date_added }}</small>
-                                      
-                                      {{ comment.body }}
+                                      <strong>{{ comment.isim }}</strong> 
+                                      <br>
+                                      {{ comment.kimlik }}
+                                      <br>
+                                      <small>{{ comment.date_added }}</small>
+                                      <br>
+                                      {{ comment.yanit }}
                                   </p>
                               </div>
                           </div>
@@ -243,7 +218,7 @@ a.icon-link {
                   {% endfor %}
               
                   <hr>
-              
+                  <section id="home_section">
                   <h2 class="subtitle">Soruyu Yanitla</h2>
               
                   <form method="post" action=".">
@@ -257,6 +232,7 @@ a.icon-link {
                           </div>
                       </div>
                   </form>
+                  </section>
 
 
 

@@ -1,23 +1,91 @@
+{% block content %}
+
+{% load static %}
+
 <!DOCTYPE html>
-<html>
-    <head>
-        <meta charset="utf-8">
-        <title>Code With Stein</title>
-        <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bulma@0.9.1/css/bulma.min.css">
-    </head>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
 
-    <body>
-        <nav class="navbar is-info">
-            <div class="navbar-brand">
-                <a href="/" class="navbar-item"><strong>Code With Stein</strong></a>
-            </div>
-        </nav>
+<style>
+    .sagakay{
+        float:right;
+        margin: 30px;
+        background-color: rgb(126, 14, 14);
+        color:white;
+        border-radius: 25px;
+        display: inline-block;
+         font-size: 25px;
+         width: 200px;
+         text-align: center;
+         letter-spacing: -.2px; 
+         text-decoration: none; 
+    
+    }
+    .sagakay:hover{
+        background-color:rgb(177, 23, 23)
+    }
+    </style>
+<style>
+    
+    
+    .sticky {
+      position: fixed;
+      top: 0;
+      width: 100%;
+    }
+    
+    .sticky + .content {
+      padding-top: 60px;
+    }
+    </style>
+    <div id="navbar">
+      
+<img src="{% static 'images/Soryason-logo.png' %}">
 
-        <section class="section">
-            <div class="container">
-                {% block content %}
-                {% endblock %}
-            </div>
-        </section>
-    </body>
+
+<div class="sagakay">
+<a href="" style="color:white; text-decoration: none; display: block;"> Soru Sor </a>
+</div>
+
+
+</div>
+
+<script>
+    window.onscroll = function() {myFunction()};
+    
+    var navbar = document.getElementById("navbar");
+    var sticky = navbar.offsetTop;
+    
+    function myFunction() {
+      if (window.pageYOffset >= sticky) {
+        navbar.classList.add("sticky")
+      } else {
+        navbar.classList.remove("sticky");
+      }
+    }
+    </script>
+
+
+<div class="w3-sidebar w3-light-grey w3-bar-block" style="width:25%; margin-top:2%; border-radius: 10px; font-size:20px; text-align: center;">
+    <!-- <h3 class="w3-bar-item">Menu</h3> -->
+    <a href="#" class="w3-bar-item w3-button">Teknoloji</a>
+    <a href="#" class="w3-bar-item w3-button">Bilim</a>
+    <a href="#" class="w3-bar-item w3-button">Tasarim</a>
+    <a href="#" class="w3-bar-item w3-button">Saglik</a>
+    <a href="#" class="w3-bar-item w3-button">Egitim</a>
+    <a href="#" class="w3-bar-item w3-button">Spor</a>
+    <a href="#" class="w3-bar-item w3-button">Oyun</a>
+    <a href="#" class="w3-bar-item w3-button">Yemek</a>
+
+  </div>
+</body>
 </html>
+
+{% endblock %}

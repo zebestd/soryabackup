@@ -12,4 +12,4 @@ class SoruForm(ModelForm):
 class CommentForm(forms.ModelForm):
     class Meta:
         model = Comment
-        fields = ['isim', 'yanit']
+        fields = ['isim', 'kimlik', 'yanit']

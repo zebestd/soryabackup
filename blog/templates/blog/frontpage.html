@@ -1,45 +1,8 @@
 {% load static %}
 
 {% block content %}
-<link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
 
-<style>
-    .sagakay{
-        float:right;
-        margin: 30px;
-        background-color: rgb(126, 14, 14);
-        color:white;
-        border-radius: 25px;
-        display: inline-block;
-         font-size: 25px;
-         width: 200px;
-         text-align: center;
-         letter-spacing: -.2px; 
-         text-decoration: none; 
-    
-    }
-    .sagakay:hover{
-        background-color:rgb(177, 23, 23)
-    }
-    </style>
-<img src="{% static 'images/Soryason-logo.png' %}">
-
-
-
-
-<div class="w3-sidebar w3-light-grey w3-bar-block" style="width:25%; margin-top:2%; border-radius: 10px; font-size:20px; text-align: center;">
-    <!-- <h3 class="w3-bar-item">Menu</h3> -->
-    <a href="#" class="w3-bar-item w3-button">Teknoloji</a>
-    <a href="#" class="w3-bar-item w3-button">Bilim</a>
-    <a href="#" class="w3-bar-item w3-button">Tasarim</a>
-    <a href="#" class="w3-bar-item w3-button">Saglik</a>
-    <a href="#" class="w3-bar-item w3-button">Egitim</a>
-    <a href="#" class="w3-bar-item w3-button">Spor</a>
-    <a href="#" class="w3-bar-item w3-button">Oyun</a>
-    <a href="#" class="w3-bar-item w3-button">Yemek</a>
-
-  </div>
-
+{% include "blog/base.html" %}
 
 <link rel='stylesheet' href='https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.1.2/css/bootstrap.min.css'>
 <link rel='stylesheet' href='https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css'>
@@ -190,9 +153,10 @@ a.icon-link {
 </style>
 
 
-<div class="sagakay">
-    <a href="{% url 'create_soru' %}" style="color:white; text-decoration: none; display: block;"> Soru Sor </a>
-    </div>
+
+
+
+
 
 {% for post in posts %}
         
